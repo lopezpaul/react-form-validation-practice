@@ -107,3 +107,19 @@ button:disabled:active{
 .error-text {
   color: #b40e0e;
 }
+
+h3 {
+  font-size: 1rem;
+  background-color:#33059e;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px 8px 0 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  display: block;
+  text-align: center;
+}
+#formik {
+  margin-top: 2rem;
+}

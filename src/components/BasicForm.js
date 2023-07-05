@@ -50,37 +50,46 @@ const BasicForm = () => {
     resetNameInput();
     resetLastNameInput();
     resetEmailInput();
+    const result = {
+      name: enteredName,
+      lastName: enteredLastName,
+      email: enteredEmail
+    }
+
+    alert(JSON.stringify(result, null, 2));
   }
   const nameInputClasses = `form-control  ${nameInputHasError ? 'invalid' : ''}`;
   const lastNameInputClasses = `form-control  ${lastNameInputHasError ? 'invalid' : ''}`;
   const emailInputClasses = `form-control  ${emailInputHasError ? 'invalid' : ''}`;
   return (
-    <form onSubmit={formSubmissionHandler}>
-      <div className='control-group'>
-        <div className={nameInputClasses}>
-          <label htmlFor='name'>First Name</label>
-          <input type='text' id='name'
-            onChange={nameChangeHandler}
-            onBlur={nameBlurHandler}
-            value={enteredName}
-          />
-          {nameInputHasError && (
-            <p className='error-text'>Name must not be empty</p>)
-          }
+    <div>
+      <h3>Using Custom validations</h3>
+      <form onSubmit={formSubmissionHandler}>
+        <div className='control-group'>
+          <div className={nameInputClasses}>
+            <label htmlFor='name'>First Name</label>
+            <input type='text' id='name'
+              onChange={nameChangeHandler}
+              onBlur={nameBlurHandler}
+              value={enteredName}
+            />
+            {nameInputHasError && (
+              <p className='error-text'>Name must not be empty</p>)
+            }
+          </div>
+          <div className={lastNameInputClasses}>
+            <label htmlFor='lastname'>Last Name</label>
+            <input type='text' id='lastname'
+              onChange={lastNameChangeHandler}
+              onBlur={lastNameBlurHandler}
+              value={enteredLastName}
+            />
+            {lastNameInputHasError && (
+              <p className='error-text'>Last Name must not be empty</p>)
+            }
+          </div>
         </div>
-        <div className={lastNameInputClasses}>
-          <label htmlFor='lastname'>Last Name</label>
-          <input type='text' id='lastname'
-            onChange={lastNameChangeHandler}
-            onBlur={lastNameBlurHandler}
-            value={enteredLastName}
-          />
-          {lastNameInputHasError && (
-            <p className='error-text'>Last Name must not be empty</p>)
-          }
-        </div>
-      </div>
-      <div className={emailInputClasses}>
+        <div className={emailInputClasses}>
           <label htmlFor='email'>E-Mail Address</label>
           <input type='text' id='email'
             onChange={emailChangeHandler}
@@ -91,10 +100,11 @@ const BasicForm = () => {
             <p className='error-text'>Email must contain @</p>)
           }
         </div>
-      <div className='form-actions'>
-        <button disabled={!formIsValid} type="submit">Submit</button>
-      </div>
-    </form>
+        <div className='form-actions'>
+          <button disabled={!formIsValid} type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
   );
 };
 
