@@ -63,7 +63,7 @@ const BasicForm = () => {
   const emailInputClasses = `form-control  ${emailInputHasError ? 'invalid' : ''}`;
   return (
     <div>
-      <h3>Using Custom validations</h3>
+      <h3>Custom validations with useReducer + customHook</h3>
       <form onSubmit={formSubmissionHandler}>
         <div className='control-group'>
           <div className={nameInputClasses}>
